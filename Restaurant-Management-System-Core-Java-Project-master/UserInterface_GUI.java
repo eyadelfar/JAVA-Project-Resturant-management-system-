@@ -503,7 +503,7 @@ public class UserInterface_GUI extends JFrame implements ActionListener
                 if (btnLoginOK.getVerifyInputWhenFocusTarget()) {
                     //Try to get focus
                     btnLoginOK.requestFocusInWindow();
-                    if (!btnLoginOK.hasFocus()) {    //Can not get focus ?Ë the compornent have not been verified
+                    if (!btnLoginOK.hasFocus()) {    //Can not get focus ?ï¿½ the compornent have not been verified
                         return;
                     }
                 }  
@@ -566,7 +566,7 @@ public class UserInterface_GUI extends JFrame implements ActionListener
         private JButton         btnAll;
         private JButton         btnMain;
         private JButton         btnDrink;
-        private JButton         btnAlcohol;
+        private JButton         btnHotDrink;
         private JButton         btnDessert;
         
         public MenuListPanel()
@@ -588,15 +588,15 @@ public class UserInterface_GUI extends JFrame implements ActionListener
            btnMain.addActionListener(this);
            btnDrink = new JButton("Drink");
            btnDrink.addActionListener(this);
-           btnAlcohol = new JButton("Alcohol");
-           btnAlcohol.addActionListener(this);
+           btnHotDrink = new JButton("Hot drink");
+           btnHotDrink.addActionListener(this);
            btnDessert = new JButton("Dessert");
            btnDessert.addActionListener(this);
            
            btnPanel.add(btnAll);
            btnPanel.add(btnMain);
            btnPanel.add(btnDrink);
-           btnPanel.add(btnAlcohol);
+           btnPanel.add(btnHotDrink);
            btnPanel.add(btnDessert);
            
            add(btnPanel, BorderLayout.SOUTH);
@@ -633,10 +633,10 @@ public class UserInterface_GUI extends JFrame implements ActionListener
                 showMenuList(MenuItem.DRINK);
                 //showParticularMenuList(MenuItem.DRINK, displayArea);
             }
-            else if (ae.getSource() == btnAlcohol)
+            else if (ae.getSource() == btnHotDrink)
             {
-                showMenuList(MenuItem.ALCOHOL);
-                //showParticularMenuList(MenuItem.ALCOHOL, displayArea);
+                showMenuList(MenuItem.HotDrink);
+                //showParticularMenuList(MenuItem.HotDrink, displayArea);
             }
             else if (ae.getSource() == btnDessert)
             {
@@ -830,7 +830,7 @@ public class UserInterface_GUI extends JFrame implements ActionListener
             gbLayout.setConstraints(lblType, gbc);
             this.add(lblType);
             
-            String[] combodata = {"Main", "Drink", "Alcohol", "Dessert"};
+            String[] combodata = {"Main", "Drink", "HotDrink", "Dessert"};
             cbType = new JComboBox(combodata);
             gbc.gridx = 1;
             gbc.gridy = 3;
@@ -906,8 +906,8 @@ public class UserInterface_GUI extends JFrame implements ActionListener
                 case MenuItem.DRINK:
                     setType("Drink");
                 break;
-                case MenuItem.ALCOHOL:
-                    setType("Alcohol");
+                case MenuItem.HotDrink:
+                    setType("HotDrink");
                 break;
                 case MenuItem.DESSERT:
                     setType("Dessert");
@@ -925,7 +925,7 @@ public class UserInterface_GUI extends JFrame implements ActionListener
                 if (btnOK.getVerifyInputWhenFocusTarget()) {
                     //Try to get focus
                     btnOK.requestFocusInWindow();
-                    if (!btnOK.hasFocus()) {    //Can not get focus ?Ë the compornent have not been verified
+                    if (!btnOK.hasFocus()) {    //Can not get focus ?ï¿½ the compornent have not been verified
                         return;
                     }
                 }  
@@ -949,9 +949,9 @@ public class UserInterface_GUI extends JFrame implements ActionListener
                 {
                     menuType = MenuItem.DRINK;
                 }
-                else if( strMenuType.equals("Alcohol"))
+                else if( strMenuType.equals("HotDrink"))
                 {
-                    menuType = MenuItem.ALCOHOL;
+                    menuType = MenuItem.HotDrink;
                 }
                 else    //Dessert
                 {
@@ -1264,7 +1264,7 @@ public class UserInterface_GUI extends JFrame implements ActionListener
                 if (btnOK.getVerifyInputWhenFocusTarget()) {
                     //Try to get focus
                     btnOK.requestFocusInWindow();
-                    if (!btnOK.hasFocus()) {    //Can not get focus ?Ë the compornent have not been verified
+                    if (!btnOK.hasFocus()) {    //Can not get focus ?ï¿½ the compornent have not been verified
                         return;
                     }
                 }  
@@ -1538,7 +1538,7 @@ public class UserInterface_GUI extends JFrame implements ActionListener
         private JButton         btnAll;
         private JButton         btnMain;
         private JButton         btnDrink;
-        private JButton         btnAlcohol;
+        private JButton         btnHotDrink;
         private JButton         btnDessert;
         
         //Left
@@ -1708,12 +1708,12 @@ public class UserInterface_GUI extends JFrame implements ActionListener
             gbLayout.setConstraints(btnDrink, gbc);
             menuListPanel.add(btnDrink);
             
-             btnAlcohol  = new JButton("Alcohol");
-             btnAlcohol.addActionListener(this);
+             btnHotDrink  = new JButton("HotDrink");
+             btnHotDrink.addActionListener(this);
             gbc.gridx = 3;
             gbc.gridy = 2;
-            gbLayout.setConstraints(btnAlcohol, gbc);
-            menuListPanel.add(btnAlcohol);
+            gbLayout.setConstraints(btnHotDrink, gbc);
+            menuListPanel.add(btnHotDrink);
             
             btnDessert  = new JButton("Dessert");
             btnDessert.addActionListener(this);
@@ -1825,7 +1825,7 @@ public class UserInterface_GUI extends JFrame implements ActionListener
                 if (btnAddItem.getVerifyInputWhenFocusTarget()) {
                     //Try to get focus
                     btnAddItem.requestFocusInWindow();
-                    if (!btnAddItem.hasFocus()) {    //Can not get focus ?Ë the compornent have not been verified
+                    if (!btnAddItem.hasFocus()) {    //Can not get focus ?ï¿½ the compornent have not been verified
                         return;
                     }
                 }  
@@ -1890,10 +1890,10 @@ public class UserInterface_GUI extends JFrame implements ActionListener
                 menuList.setListData(rcController.createMenuList(MenuItem.DRINK).toArray());
                 menuScrollPanel.getViewport().setView(menuList);
             }
-             else if (ae.getSource() == btnAlcohol)
+             else if (ae.getSource() == btnHotDrink)
             {
-                //createParticularMenuList(MenuItem.ALCOHOL, menuList);
-                menuList.setListData(rcController.createMenuList(MenuItem.ALCOHOL).toArray());
+                //createParticularMenuList(MenuItem.HotDrink, menuList);
+                menuList.setListData(rcController.createMenuList(MenuItem.HotDrink).toArray());
                 menuScrollPanel.getViewport().setView(menuList);
             }
              else if (ae.getSource() == btnDessert)

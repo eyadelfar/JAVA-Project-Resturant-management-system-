@@ -8,7 +8,7 @@ public class MenuItem
     //definition of menu item type
     public final static int MAIN = 1;
     public final static int DRINK = 2;
-    public final static int ALCOHOL = 3;
+    public final static int HotDrink = 3;
     public final static int DESSERT = 4;
     
     private int     ID;

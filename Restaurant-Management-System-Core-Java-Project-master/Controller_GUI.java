@@ -614,8 +614,8 @@ public class Controller_GUI
                 case MenuItem.DRINK:
                 strMenuType = "Drink";
                 break;
-                case MenuItem.ALCOHOL:
-                strMenuType = "Alcohol";
+                case MenuItem.HotDrink:
+                strMenuType = "Hot Drink";
                 break;
                 case MenuItem.DESSERT:
                 strMenuType = "Dessert";
