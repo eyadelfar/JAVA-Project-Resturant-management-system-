@@ -133,15 +133,11 @@ public class Database
         else        
             return null;
     }
-     /****************************************************************************
-     * Manipurate datas
-     ***************************************************************************/
-     //---------------------------------------------------------------
+
+
+
      // Staff information
      //---------------------------------------------------------------
-     //edit staff data
-     // rStaff reference the staff 
-     // which 1:Lastname 2:Firstname 3:passward
      public final static int EDIT_LAST_NAME = 1;
      public final static int EDIT_FIRST_NAME = 2;
      public final static int EDIT_PASSWORD = 3;
@@ -156,7 +152,6 @@ public class Database
         try
         {
             if(rStaff instanceof Manager)
-            //if(rStaff.getClass().getName().equalsIgnoreCase("Manager"))
             updateStaffFile(true);//update manager file
             else
             updateStaffFile(false);//update employee file
@@ -202,7 +197,6 @@ public class Database
      {
          boolean isManager = false;
          staffList.remove(rStaff);
-         //if(rStaff.getClass().getName().equalsIgnoreCase("Manager"))
         if(rStaff instanceof Manager)
          isManager = true;
         try
@@ -225,7 +219,6 @@ public class Database
             newStaff = new Employee(newID, newLastName, newFirstName, newPassward);
          staffList.add(newStaff);
          if(newStaff instanceof Manager)
-         //if(newStaff.getClass().getName().equalsIgnoreCase("Manager"))
             isManager = true;
         try
         {
@@ -236,13 +229,10 @@ public class Database
             throw dbe;
         }
      }
-
      //---------------------------------------------------------------
      // MenuItem
      //---------------------------------------------------------------
-     //edit menu item data
-     // rMenuItem reference the MenuItem 
-     // which 1:name 2:price 3:type
+
      public final static int EDIT_ITEM_NAME = 1;
      public final static int EDIT_ITEM_PRICE = 2;
      public final static int EDIT_ITEM_TYPE = 3;
@@ -253,15 +243,6 @@ public class Database
          rMenuItem.setName(newName);
          rMenuItem.setPrice(newPrice);
          rMenuItem.setType(menuType);
-         
-        /*try
-        {
-            updateMenuFile();
-        }
-        catch(DatabaseException dbe)
-        {
-            throw dbe;
-        }*/
      }
      
      public void editMenuItemData(MenuItem rMenuItem, int which, String newData) throws DatabaseException
@@ -315,14 +296,7 @@ public class Database
      public void deleteMenuItem(MenuItem rMenuItem) throws DatabaseException
      {
          menuList.remove(rMenuItem);
-         /*try
-        {
-             updateMenuFile();
-        }
-        catch(DatabaseException dbe)
-        {
-            throw dbe;
-        }*/
+
      }
      
      public void addMenuItem(int newID, String newName, double newPrice, byte newType) throws DatabaseException
@@ -330,14 +304,7 @@ public class Database
          MenuItem newMenuItem = new MenuItem(newID, newName,newPrice, newType);
          menuList.add(newMenuItem);
          Collections.sort(menuList, new MenuItemComparator());
-         /*try
-         {
-             updateMenuFile();
-        }
-        catch(DatabaseException dbe)
-        {
-            throw dbe;
-        }*/  
+
      }
      //---------------------------------------------------------------
      // Order
@@ -631,8 +598,6 @@ public class Database
                 }
                 else
                 {
-                    //skip managere data
-                    //if(re.getClass().getName().equalsIgnoreCase("Manager"))
                     if(re instanceof Manager)
                     continue;
                 }
@@ -782,7 +747,7 @@ public class Database
                         orderCnt++;
                     break;
                 }
-                String output = String.format("Order ID:%4d  StaffName:%-30s  Total:$%-5.2f %s\r\n",
+                String output = String.format("Order ID:%4d  StaffName:%-30s  Total:EGP %-5.2f %s\r\n",
                                             re.getOrderID(),re.getStaffName(),totalOfEachOrder, stateString);
                 writer.write(output);
                 
@@ -790,8 +755,8 @@ public class Database
             }
             writer.write("-------------------------------------------------------\r\n");
             
-            writer.write("Total sales:$" + totalAllOrder + "(" + orderCnt + ")" +
-                    "  Canceled:$" + cancelTotal + "(" + cancelCnt + ")\r\n");
+            writer.write("Total sales:EGP " + totalAllOrder + "(" + orderCnt + ")" +
+                    "  Canceled:EGP" + cancelTotal + "(" + cancelCnt + ")\r\n");
             writer.flush();
             writer.close();
         }
@@ -842,7 +807,7 @@ public class Database
             }
             writer.write("-------------------------------------------------------\r\n");
             
-            writer.write("Total payment:$" + totalPayment + "(" + staffNum + ")\r\n");
+            writer.write("Total payment:EGP " + totalPayment + "(" + staffNum + ")\r\n");
             writer.flush();
             writer.close();
         }
