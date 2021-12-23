@@ -11,15 +11,13 @@ public class Controller
     private String      currentUserName;
     private String      todaysDate;
     
-    private int         todaysOrderCnt;     //Today's order count
-
-    private int         todaysCancelCnt;    //Today's cancel count
-    private double      cancelTotal;        //Total cost of today's canceled orders
+    private int         todaysOrderCnt;
+    private int         todaysCancelCnt;
+    private double      cancelTotal;
     
     
     private String      errorMessage;
-    
-    //define user type
+
     public final static int USER_ANONYMOUS = 0;
     public final static int USER_EMPLOYEE = 1;
     public final static int USER_MANAGER = 2; 
